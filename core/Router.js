@@ -1,17 +1,18 @@
 const routes = [
-    require('../routes/Home/Home')
+    require('../routes/Home/Home'),
+    require('../routes/NotFound/NotFound')
 ]
 
 const Router = {
     match(location) {
         const util = require('util');
         const route = routes.find(x => {
-            return x.default.path === location.path;
+            return x.path === location.path;
         });
 
         if(route){
             try{
-                return route.default.action();
+                return route.action();
             } catch (err) {
                 return routes.find(x => x.path === '/500').action();
             }

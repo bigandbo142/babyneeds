@@ -28,4 +28,4 @@ class Home extends Component {
     }
 }
 
-export default { path, action };
+export { path, action };
