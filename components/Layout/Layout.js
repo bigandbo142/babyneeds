@@ -12,7 +12,7 @@ function Layout({ header, children }) {
 
       </main>
       <footer>
-        <span>© Company Name</span>
+        <span>© Company Name Hehe</span>
       </footer>
     </div>
   );

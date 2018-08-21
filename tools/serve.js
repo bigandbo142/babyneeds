@@ -26,7 +26,7 @@ async function serve() {
                 process.stdout.write(new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, '[$1]'));
                 process.stdout.write(data);
                 
-                if(data.toString('utf8').includes('Node.js server is listening at')){
+                if(data.toString('utf8').includes('Server is running at')){
                     resolve();
                 }
             });

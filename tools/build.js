@@ -4,10 +4,7 @@ import ncp from 'ncp';
 import Promise from 'bluebird';
 import webpack from 'webpack';
 import webpackConfig from './webpack.config';
-
-async function clean(){
-    await del(['build/*', '!build/.git'], {dot: true});
-}
+import clean from './clean';
 
 async function copy(){
     // copy everything inisde public folder and package.json to the build folder

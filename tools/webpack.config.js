@@ -1,11 +1,17 @@
 import path from 'path';
 import extend from 'extend';
+import webpack from 'webpack';
 
 const common = {
     stats: {
         colors: true,
         chunks: false
     },
+    plugins: [
+        new webpack.optimize.OccurrenceOrderPlugin(true),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoEmitOnErrorsPlugin()
+    ],
     mode: 'development'
 };
 
@@ -51,7 +57,7 @@ const client = extend(true, {}, common, {
                         loader: 'css-loader',
                         options: {
                             modules: true,
-                            localIdentName: '[name]__[local]--[hash:base64:3]'
+                            localIdentName: '[name]_[local]_[hash:base64:3]'
                         }
                     },
                     {
@@ -119,7 +125,7 @@ const server = extend(true, {}, common,  {
                         loader: 'css-loader/locals',
                         options: {
                             modules: true,
-                            localIdentName: '[name]__[local]--[hash:base64:3]'
+                            localIdentName: '[name]_[local]_[hash:base64:3]'
                         }
                     },
                     {
